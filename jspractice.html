@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            button{
+                width: 120px;
+                height: 50px;
+                cursor: pointer;
+                border-radius: 30px;
+            }
+
+            button:hover{
+                background: #666;
+                color: white;
+                transition: all .1s linear;
+            }
+
+            .box-container{
+                display: flex;
+                flex-wrap: wrap;
+                gap:1.5rem
+            }
+
+            .box-container .box{
+                flex: 1 1 30rem;
+                box-sizing: border-box;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+                border: .1rem solid rgba(0, 0, 0,.3);
+                border-radius: .5rem;
+                padding: 30px;
+            }
+
+            input{
+                border-radius: 13px;
+                height: 30px;
+                font-size: smaller;
+            }
+
+            .box .btn{
+                display: flex;
+                justify-content: center;
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box-container">
+
+            <!--Display Values start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Display Values</h3>
+                    <div class="input" style="display: flex;justify-content:space-evenly">
+                        <input type="text" placeholder="Value-1" id="val1">
+                        <input type="text" placeholder="Value-2" id="val2">
+                    </div>
+                    <div class="btn">
+                        <button onclick="displayValues(document.getElementById('val1').value,document.getElementById('val2').value)">Display Values</button>
+                    </div>
+                </div>
+            </div>
+            <!--Display Values end-->
+
+            <!--Spread Operator start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Spread operator</h3>
+                    <h5 style="text-align: center;">arr1 = [1,2,3,4,5]</h5>
+                    <h5 style="text-align: center;">arr2 = ["one","two","three","four","five"]</h5>
+                    <h5 style="text-align: center;">combinedArray = [1,2,3,4,5,"one","two","three","four","five"]</h5>
+                    <!-- <div class="input" style="display: flex;justify-content:space-evenly">
+                        <input type="text" placeholder="Value-1" id="val1">
+                        <input type="text" placeholder="Value-2" id="val2">
+                    </div> -->
+                    <div class="btn">
+                        <button onclick="spreadOpearator()">SpreadOperator</button>
+                    </div>
+                </div>
+            </div>
+            <!--Spread Operator end-->
+
+            <!--Rest Operator start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Rest Operator</h3>
+                    <h5 style="text-align: center;">rest(x, ...y)       Function</h5>
+                    <h5 style="text-align: center;">rest(2,3,4,5,6,7,8,9)       Function call</h5>
+                    <h5 style="text-align: center;">finalOutput = " Given data is 2 y : 3,4,5,6,7,8,9 "</h5>
+                    <!-- <div class="input" style="display: flex;justify-content:space-evenly">
+                        <input type="text" placeholder="Value-1" id="val1">
+                        <input type="text" placeholder="Value-2" id="val2">
+                    </div> -->
+                    <div class="btn">
+                        <button onclick="restOperator()">SpreadOperator</button>
+                    </div>
+                </div>
+            </div>
+            <!--Rest Operator end-->
+
+            <!--Destructuring the array start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Destructuring Array</h3>
+                    <h5 style="text-align: center;">arr = [1,2,3,4,5]</h5>
+                    <h5 style="text-align: center;">const [one,two,three,four,five] = arr</h5>
+                    <h5 style="text-align: center;">here we are mapping one->1, two->2, three->3, four->4, five->5</h5>
+                    <div class="btn">
+                        <button onclick="destructuringArray()">Destructuring arr</button>
+                    </div>
+                </div>
+            </div>
+            <!--Destructuring the array start-->
+
+            <!--Using template literals for the before program start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Destructuring Array and using template literals to print</h3>
+                    <h5 style="text-align: center;">arr = [1,2,3,4,5]</h5>
+                    <h5 style="text-align: center;">const [one,two,three,four,five] = arr</h5>
+                    <h5 style="text-align: center;">here we are mapping one->1, two->2, three->3, four->4, five->5</h5>
+                    <div class="btn">
+                        <button onclick="destructuringArray2()">Destructuring arr</button>
+                    </div>
+                </div>
+            </div>
+            <!--Using template literals for the before program end-->
+
+            <!--Arrow function start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Arrow Function</h3>
+                    <div class="input" style="display: flex;justify-content:space-evenly">
+                        <input type="text" placeholder="Enter n value" id="valn">
+                    </div>
+                    <h5 style="text-align: center;">Display n using arrow function</h5>
+                    <div class="btn">
+                        <button onclick="arrowfunction1(document.getElementById('valn').value)">Arrow Function</button>
+                    </div>
+                </div>
+            </div>
+            <!--Arrow function end-->
+
+            <!--Arrow function without arguments start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Arrow Function without arguments</h3>
+                    <div class="btn">
+                        <button onclick="arrowfunction2()">Arrow Function</button>
+                    </div>
+                </div>
+            </div>
+            <!--Arrow function without arguments end-->
+
+            <!--Arrow function with return type start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Power of a number using Arrow function</h3>
+                    <div class="input" style="display: flex;justify-content:space-evenly">
+                        <input type="text" placeholder="Enter number" id="valnum">
+                    </div>
+                    <h5 style="text-align: center;">Calculate power of n using arrow function</h5>
+                    <div class="btn">
+                        <button onclick="power(document.getElementById('valnum').value)">Power</button>
+                    </div>
+                </div>
+            </div>
+            <!--Arrow function with return type end-->
+
+            <!--Arrow function with default values start-->
+            <div class="box">
+                <div class="content">
+                    <h3 style="text-align: center;">Total Salary using default arguments in Arrow function</h3>
+                    <div class="input" style="display: flex;justify-content:space-evenly">
+                        <input type="text" placeholder="Enter Basic" id="basic">
+                        <input type="text" placeholder="Enter HRA" id="hra">
+                        <input type="text" placeholder="Enter DA" id="da">
+                        <input type="text" placeholder="Enter PF" id="pf">
+                    </div>
+                    <div class="btn">
+                        <button onclick="computeSalary( document.getElementById('basic').value,
+                                                        document.getElementById('hra').value,
+                                                        document.getElementById('da').value,
+                                                        document.getElementById('pf').value)">Compute Salary</button>
+                    </div>
+                </div>
+            </div>
+            <!--Arrow function with default values end-->
+
+            <!---->
+
+        <script src="jspractice.js"></script>
+    </body>
+</html>
